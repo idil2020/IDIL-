@@ -19,13 +19,17 @@ function showPage(pageId) {
         return;
     }
 
-    /* Hide all sections */
+    /* Keep all portfolio sections available as a single scrolling page. */
     pages.forEach(function(page) {
         page.classList.remove("active");
     });
 
     /* Display the selected section only */
     selectedPage.classList.add("active");
+    selectedPage.classList.remove("page-entering");
+    requestAnimationFrame(function() {
+        selectedPage.classList.add("page-entering");
+    });
 
     /* Update the active navigation link */
     navLinks.forEach(function(link) {
@@ -45,10 +49,56 @@ function showPage(pageId) {
         menuToggle.setAttribute("aria-expanded", "false");
     }
 
-    /* Move to the top of the selected page */
+    const headerHeight = document.querySelector(".site-header").offsetHeight;
+    const pageTop = selectedPage.getBoundingClientRect().top + window.scrollY;
+
     window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+        top: Math.max(0, pageTop - headerHeight - 12),
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "instant"
+            : "smooth",
+    });
+}
+
+/* REVEAL CONTENT AS IT ENTERS THE VIEWPORT */
+function setupRevealAnimations() {
+    const revealTargets = document.querySelectorAll(
+        ".hero-content > *, .hero-image, .mission > h2, .mission-card, " +
+        ".page > h1, .section-heading > *, .experience-item, " +
+        ".education-item, .certificate-card, .skill-card, .project-card, " +
+        ".project-category, .project-category > h2, .projects-section > p, " +
+        ".contact-details"
+    );
+
+    if (!("IntersectionObserver" in window)) {
+        return;
+    }
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: "0px 0px -35px 0px"
+    });
+
+    revealTargets.forEach(function(element, index) {
+        element.classList.add("reveal");
+        element.style.setProperty(
+            "--reveal-delay",
+            String((index % 4) * 80) + "ms"
+        );
+
+        const bounds = element.getBoundingClientRect();
+        if (bounds.top < window.innerHeight - 35 && bounds.bottom > 0) {
+            element.classList.add("is-visible");
+        } else {
+            observer.observe(element);
+        }
     });
 }
 
@@ -91,6 +141,8 @@ if (menuToggle && navMenu) {
 
 /* OPEN THE CORRECT PAGE WHEN THE WEBSITE LOADS */
 window.addEventListener("DOMContentLoaded", function() {
+    setupRevealAnimations();
+
     const pageId = window.location.hash.substring(1);
 
     showPage(pageId || "home");
