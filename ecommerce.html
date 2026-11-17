@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An interactive e-commerce website demo by Idil Mohamed Abdi.">
+    <title>Everyday Goods | E-Commerce Demo</title>
+    <link rel="stylesheet" href="ecommerce.css">
+    <script src="ecommerce.js" defer></script>
+</head>
+<body>
+    <header class="store-header">
+        <a class="store-brand" href="index.html#projects" aria-label="Back to Idil's portfolio">
+            <span class="brand-mark" aria-hidden="true">I.</span>
+            <span>IDIL<span class="brand-accent">.DEV</span></span>
+        </a>
+        <nav class="store-nav" aria-label="Main navigation">
+            <a href="#products">Shop</a>
+            <a href="#about-store">About</a>
+        </nav>
+        <a class="cart-shortcut" href="#cart">
+            Your bag <span id="header-cart-count" aria-label="0 items">0</span>
+        </a>
+    </header>
+
+    <main>
+        <section class="store-hero" id="about-store">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> A STUDENT E-COMMERCE PROJECT</p>
+                <h1>Good things for<br><span>everyday life.</span></h1>
+                <p class="hero-description">
+                    A simple online storefront concept for discovering useful
+                    everyday essentials and adding them to your shopping bag.
+                </p>
+                <a class="hero-link" href="#products">Explore the collection <span aria-hidden="true">↓</span></a>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+                <div class="art-orbit orbit-one"></div>
+                <div class="art-orbit orbit-two"></div>
+                <div class="art-sun"></div>
+                <div class="art-product">✦</div>
+                <p>Made for your<br>everyday</p>
+            </div>
+        </section>
+
+        <section class="shop-layout" id="products">
+            <div class="catalog">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">THE COLLECTION</p>
+                        <h2>Find your next favourite.</h2>
+                    </div>
+                    <label class="search-control">
+                        <span class="sr-only">Search products</span>
+                        <span aria-hidden="true">⌕</span>
+                        <input id="product-search" type="search" placeholder="Search products">
+                    </label>
+                </div>
+
+                <div class="category-list" role="group" aria-label="Filter products by category">
+                    <button class="category-button active" type="button" data-category="All" aria-pressed="true">All items</button>
+                    <button class="category-button" type="button" data-category="Tech" aria-pressed="false">Tech</button>
+                    <button class="category-button" type="button" data-category="Workspace" aria-pressed="false">Workspace</button>
+                    <button class="category-button" type="button" data-category="Everyday" aria-pressed="false">Everyday</button>
+                </div>
+
+                <div class="product-grid" id="product-grid" aria-live="polite"></div>
+                <p class="empty-message" id="product-empty" hidden>No items match your search.</p>
+            </div>
+
+            <aside class="cart-panel" id="cart" aria-labelledby="cart-title">
+                <div class="cart-heading">
+                    <div>
+                        <p class="eyebrow">YOUR SELECTION</p>
+                        <h2 id="cart-title">Shopping bag</h2>
+                    </div>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+                <p class="cart-empty" id="cart-empty">Your bag is waiting for something good.</p>
+                <ul class="cart-items" id="cart-items" aria-live="polite"></ul>
+                <div class="cart-summary">
+                    <span>Subtotal</span>
+                    <strong id="cart-subtotal">RM 0.00</strong>
+                </div>
+                <button class="checkout-button" id="checkout-button" type="button" disabled>Continue to checkout <span aria-hidden="true">↗</span></button>
+                <p class="demo-note">Portfolio demo only. No orders or payments are processed.</p>
+            </aside>
+        </section>
+
+        <p class="store-status" id="store-status" role="status" aria-live="polite"></p>
+    </main>
+
+    <footer class="store-footer">
+        <a class="store-brand" href="index.html#projects">
+            <span class="brand-mark" aria-hidden="true">I.</span>
+            <span>IDIL<span class="brand-accent">.DEV</span></span>
+        </a>
+        <p>Design and Implementation of an E-Commerce Site · Academic project, 2018</p>
+        <a href="index.html#projects">Back to portfolio <span aria-hidden="true">↗</span></a>
+    </footer>
+</body>
+</html>

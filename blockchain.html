@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive blockchain-based digital certification concept demo by Idil Mohamed Abdi.">
+    <title>ChainCert | Blockchain Certification Demo</title>
+    <link rel="stylesheet" href="blockchain.css">
+    <script src="blockchain.js" defer></script>
+</head>
+<body>
+    <header class="chain-header">
+        <a class="chain-brand" href="index.html#projects" aria-label="Back to Idil's portfolio">
+            <span class="chain-mark" aria-hidden="true">C</span>
+            <span><strong>ChainCert</strong><small>Digital credential framework</small></span>
+        </a>
+        <nav class="chain-nav" aria-label="Main navigation">
+            <a href="#issue">Issue</a>
+            <a href="#verify">Verify</a>
+            <a href="#ledger">Demo ledger</a>
+            <a class="portfolio-link" href="index.html#projects">Open your portfolio ↗</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="chain-hero">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> BLOCKCHAIN-BASED FRAMEWORK · INTERACTIVE DEMO</p>
+                <h1>Credentials<br>you can <span>verify.</span></h1>
+                <p>
+                    Explore a concept for issuing, storing, and verifying digital
+                    certificates with a transparent credential record.
+                </p>
+                <a class="primary-link" href="#verify">Verify a credential <span aria-hidden="true">↓</span></a>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+                <div class="orbit orbit-a"></div>
+                <div class="orbit orbit-b"></div>
+                <div class="credential-art">
+                    <span class="credential-seal">✓</span>
+                    <span class="credential-line long"></span>
+                    <span class="credential-line"></span>
+                    <span class="credential-line short"></span>
+                    <span class="credential-ribbon"></span>
+                </div>
+                <span class="visual-caption">ISSUED · RECORDED · VERIFIED</span>
+            </div>
+        </section>
+
+        <section class="stats-row" aria-label="Demo ledger overview">
+            <div><span class="stat-icon" aria-hidden="true">▤</span><span><strong id="credential-count">3</strong><small>Demo credentials</small></span></div>
+            <div><span class="stat-icon" aria-hidden="true">✓</span><span><strong id="valid-count">2</strong><small>Active records</small></span></div>
+            <div><span class="stat-icon" aria-hidden="true">◈</span><span><strong id="ledger-count">3</strong><small>Demo entries</small></span></div>
+            <span class="network-badge"><span aria-hidden="true"></span> Local demo network</span>
+        </section>
+
+        <section class="workspace" id="verify">
+            <div class="verify-panel">
+                <div class="panel-heading">
+                    <span class="panel-icon" aria-hidden="true">⌕</span>
+                    <div><p class="eyebrow">CREDENTIAL LOOKUP</p><h2>Verify a certificate</h2></div>
+                </div>
+                <p class="panel-copy">Check a certificate ID against the sample credential registry.</p>
+                <form id="verify-form" novalidate>
+                    <label for="verify-id">Certificate ID</label>
+                    <div class="input-row">
+                        <input id="verify-id" type="text" placeholder="e.g. CHAIN-2025-001" autocomplete="off">
+                        <button class="accent-button" type="submit">Verify <span aria-hidden="true">↗</span></button>
+                    </div>
+                </form>
+                <div class="verification-result" id="verification-result" role="status" aria-live="polite">
+                    <span class="result-mark" id="result-mark" aria-hidden="true">✓</span>
+                    <div><strong id="result-title">Ready to verify</strong><p id="result-description">Enter an ID or choose a sample credential below.</p></div>
+                </div>
+                <p class="sample-heading">SAMPLE CERTIFICATE IDS</p>
+                <div class="sample-list" id="sample-list"></div>
+            </div>
+
+            <aside class="issue-panel" id="issue">
+                <div class="panel-heading">
+                    <span class="panel-icon orange" aria-hidden="true">＋</span>
+                    <div><p class="eyebrow">ISSUER WORKSPACE</p><h2>Issue a demo credential</h2></div>
+                </div>
+                <p class="panel-copy">Create a sample entry in this page's temporary demo ledger.</p>
+                <form id="issue-form">
+                    <label for="recipient">Recipient name</label>
+                    <input id="recipient" name="recipient" type="text" maxlength="70" required placeholder="e.g. Alex Morgan">
+                    <label for="credential-title">Credential title</label>
+                    <input id="credential-title" name="title" type="text" maxlength="90" required placeholder="e.g. Introduction to Web Design">
+                    <label for="issuer">Issuing organisation</label>
+                    <input id="issuer" name="issuer" type="text" maxlength="70" required placeholder="e.g. Digital Skills Academy">
+                    <button class="issue-button" type="submit">Add to demo ledger <span aria-hidden="true">＋</span></button>
+                </form>
+            </aside>
+        </section>
+
+        <section class="ledger-section" id="ledger">
+            <div class="section-title">
+                <div><p class="eyebrow">APPEND-ONLY CONCEPT</p><h2>Credential activity</h2></div>
+                <span class="ledger-badge"><span aria-hidden="true">◈</span> Simulated ledger</span>
+            </div>
+            <div class="ledger-table-wrap">
+                <table>
+                    <thead><tr><th>Credential</th><th>Recipient</th><th>Issuer</th><th>Record status</th></tr></thead>
+                    <tbody id="ledger-rows"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <aside class="demo-notice">
+            <span aria-hidden="true">i</span>
+            <p><strong>Prototype, not a live blockchain.</strong> This browser-only demo uses sample records and temporary in-memory state. It does not connect to a wallet, issue a real credential, or write to a blockchain.</p>
+        </aside>
+    </main>
+
+    <footer class="chain-footer">
+        <a href="index.html#projects">IDIL.DEV · Open your portfolio ↗</a>
+        <span>Blockchain-Based Framework for Digital Certification</span>
+    </footer>
+</body>
+</html>

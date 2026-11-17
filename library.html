@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive student library system portfolio demo by Idil Mohamed Abdi.">
+    <title>Student Library | Portfolio Demo</title>
+    <link rel="stylesheet" href="library.css">
+    <script src="library.js" defer></script>
+</head>
+
+<body>
+    <header class="library-header">
+        <a class="library-brand" href="index.html#projects" aria-label="Back to Idil's portfolio">
+            <span class="brand-icon" aria-hidden="true">▤</span>
+            <span><strong>Student Library</strong><small>E-Library · Read · Learn · Grow</small></span>
+        </a>
+
+        <nav class="top-nav" aria-label="Library navigation">
+            <a href="#browse">Browse books</a>
+            <a href="#my-books">My books <span class="nav-loan-count" id="nav-loan-count">0</span></a>
+            <a class="back-link" href="index.html#projects">Back to portfolio ↗</a>
+        </nav>
+
+        <div class="demo-profile">
+            <img src="image/my-photo.jpg" alt="">
+            <span><strong>Idil Mohamed Abdi</strong><small>Portfolio demo</small></span>
+            <span class="demo-lock" title="Local demo only">DEMO</span>
+        </div>
+    </header>
+
+    <main class="library-main">
+        <section class="welcome-row" id="home">
+            <div>
+                <p class="eyebrow"><span class="live-dot"></span> STUDENT E-LIBRARY</p>
+                <h1>Read. Learn. <span>Grow.</span></h1>
+                <p class="welcome-copy">Find a book, borrow it online, and bring it back within three days.</p>
+            </div>
+            <div class="demo-badge"><span aria-hidden="true">◈</span> Interactive portfolio preview</div>
+        </section>
+
+        <section class="dashboard-grid" aria-label="Library dashboard">
+            <article class="panel student-panel">
+                <div class="panel-heading">
+                    <span class="panel-icon cyan" aria-hidden="true">▣</span>
+                    <div><p class="eyebrow">STUDENT ACCESS</p><h2>Student profile</h2></div>
+                </div>
+                <div class="student-summary">
+                    <img src="image/my-photo.jpg" alt="Idil Mohamed Abdi">
+                    <div><strong>Idil Mohamed Abdi</strong><span>Portfolio demo account</span></div>
+                    <span class="verified-badge" aria-label="Demo profile">✓</span>
+                </div>
+                <div class="student-notice">
+                    <span class="notice-icon" aria-hidden="true">i</span>
+                    <p>This preview uses a demo profile. It does not verify student IDs or connect to a real library account.</p>
+                </div>
+            </article>
+
+            <article class="panel borrowing-panel">
+                <div class="panel-heading">
+                    <span class="panel-icon violet" aria-hidden="true">◷</span>
+                    <div><p class="eyebrow">BORROWING PERIOD</p><h2>3 days to return</h2></div>
+                </div>
+                <p class="panel-copy">Borrowable books are due three days after checkout. Return books from the “My books” section.</p>
+                <div class="borrow-stats">
+                    <div><span>Currently borrowed</span><strong id="borrowed-count">0 books</strong></div>
+                    <a href="#my-books">View my books <span aria-hidden="true">→</span></a>
+                </div>
+            </article>
+
+            <article class="panel access-panel">
+                <div class="panel-heading">
+                    <span class="panel-icon blue" aria-hidden="true">⌕</span>
+                    <div><p class="eyebrow">QUICK ACCESS</p><h2>Find your next read</h2></div>
+                </div>
+                <p class="panel-copy">Search the sample student collection by title or subject.</p>
+                <a class="panel-action" href="#browse">Browse the collection <span aria-hidden="true">↗</span></a>
+            </article>
+        </section>
+
+        <section class="content-layout" id="browse">
+            <div class="section-title-row">
+                <div>
+                    <p class="eyebrow">LIBRARY CATALOG</p>
+                    <h2>Explore the collection</h2>
+                </div>
+                <label class="search-box">
+                    <span aria-hidden="true">⌕</span>
+                    <span class="sr-only">Search books</span>
+                    <input id="book-search" type="search" placeholder="Search books or subjects…" autocomplete="off">
+                    <kbd>/</kbd>
+                </label>
+            </div>
+
+            <div class="category-list" id="category-list" aria-label="Filter by category"></div>
+            <div class="book-grid" id="book-grid" aria-live="polite"></div>
+            <p class="empty-state" id="catalog-empty" hidden>No books match your search. Try another title or category.</p>
+        </section>
+
+        <section class="content-layout loans-section" id="my-books">
+            <div class="section-title-row">
+                <div>
+                    <p class="eyebrow">YOUR CHECKOUTS</p>
+                    <h2>My books <span class="section-count" id="section-loan-count">0</span></h2>
+                </div>
+                <p class="section-aside">Each demo checkout has a three-day return period.</p>
+            </div>
+            <div class="loan-grid" id="loan-grid" aria-live="polite"></div>
+            <p class="empty-state" id="loans-empty">No books borrowed yet. Choose a book above to try the checkout flow.</p>
+        </section>
+
+        <section class="bottom-notice" id="notifications">
+            <span class="notice-icon" aria-hidden="true">i</span>
+            <div><strong>About this project demo</strong><p>This interactive front-end preview demonstrates the book search and three-day borrowing flow for my university library project. It uses sample books and browser-only demo records; no real student account or library service is connected.</p></div>
+            <a href="index.html#projects">Portfolio <span aria-hidden="true">↗</span></a>
+        </section>
+
+        <p class="status-message" id="status-message" role="status" aria-live="polite"></p>
+    </main>
+
+    <footer class="library-footer">
+        <span>Student Library · Academic project concept</span>
+        <span>Designed and built by Idil Mohamed Abdi</span>
+    </footer>
+</body>
+
+</html>

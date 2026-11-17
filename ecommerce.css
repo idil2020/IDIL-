@@ -1,0 +1,704 @@
+﻿:root {
+    color-scheme: dark;
+    --ink: #0B1F4B;
+    --azure: #A8D8FF;
+    --vermilion: #FF2D8A;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 92px;
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+    background:
+        radial-gradient(ellipse at 68% 12%, color-mix(in srgb, var(--azure) 10%, transparent), transparent 34rem),
+        var(--ink);
+    color: var(--azure);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.55;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button,
+a,
+input {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--vermilion);
+    outline-offset: 3px;
+}
+
+.store-header,
+.store-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 18px max(5vw, calc((100% - 1440px) / 2));
+    border-bottom: 1px solid color-mix(in srgb, var(--azure) 18%, transparent);
+    background: color-mix(in srgb, var(--ink) 94%, transparent);
+}
+
+.store-header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    min-height: 78px;
+    backdrop-filter: blur(16px);
+}
+
+.store-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.11em;
+}
+
+.brand-mark {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--azure) 60%, transparent);
+    border-radius: 50%;
+    color: var(--vermilion);
+    letter-spacing: 0;
+}
+
+.brand-accent {
+    color: var(--azure);
+}
+
+.store-nav {
+    display: flex;
+    gap: 30px;
+    color: color-mix(in srgb, var(--azure) 72%, var(--ink));
+    font-size: 0.9rem;
+}
+
+.store-nav a:hover,
+.store-footer > a:last-child,
+.hero-link {
+    color: var(--vermilion);
+}
+
+.cart-shortcut {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 14px;
+    border: 1px solid color-mix(in srgb, var(--azure) 32%, transparent);
+    border-radius: 999px;
+    font-size: 0.86rem;
+}
+
+.cart-shortcut span,
+.cart-count {
+    display: grid;
+    min-width: 24px;
+    height: 24px;
+    padding: 0 6px;
+    place-items: center;
+    border-radius: 999px;
+    background: var(--vermilion);
+    color: var(--ink);
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.store-hero {
+    position: relative;
+    display: grid;
+    width: min(90%, 1360px);
+    min-height: 430px;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 48px;
+    margin: 0 auto;
+    padding: 64px 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--azure) 16%, transparent);
+}
+
+.eyebrow {
+    margin: 0 0 12px;
+    color: var(--azure);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+
+.hero-copy .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--vermilion);
+    box-shadow: 0 0 14px color-mix(in srgb, var(--vermilion) 56%, transparent);
+}
+
+.hero-copy h1 {
+    margin: 0;
+    color: var(--azure);
+    font-size: clamp(3rem, 6.5vw, 6.4rem);
+    letter-spacing: -0.07em;
+    line-height: 0.98;
+}
+
+.hero-copy h1 span {
+    color: var(--vermilion);
+}
+
+.hero-description {
+    max-width: 560px;
+    margin: 22px 0;
+    color: color-mix(in srgb, var(--azure) 74%, var(--ink));
+    font-size: 1.05rem;
+}
+
+.hero-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.hero-art {
+    position: relative;
+    display: grid;
+    min-height: 310px;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--azure) 22%, transparent);
+    border-radius: 28px;
+    background:
+        radial-gradient(ellipse at 50% 70%, color-mix(in srgb, var(--azure) 18%, transparent), transparent 56%),
+        color-mix(in srgb, var(--ink) 90%, var(--azure));
+}
+
+.art-orbit {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: 1px solid color-mix(in srgb, var(--azure) 26%, transparent);
+    border-radius: 50%;
+}
+
+.orbit-two {
+    width: 330px;
+    height: 170px;
+    border-color: color-mix(in srgb, var(--vermilion) 48%, transparent);
+    transform: rotate(-24deg);
+}
+
+.art-sun {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, var(--azure), color-mix(in srgb, var(--azure) 28%, var(--ink)) 70%);
+    box-shadow: 0 0 80px color-mix(in srgb, var(--azure) 28%, transparent);
+}
+
+.art-product {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: 130px;
+    height: 160px;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--azure) 55%, transparent);
+    border-radius: 24px;
+    background: linear-gradient(145deg, color-mix(in srgb, var(--ink) 72%, transparent), color-mix(in srgb, var(--azure) 25%, var(--ink)));
+    color: var(--vermilion);
+    font-size: 4rem;
+    box-shadow: 0 20px 50px color-mix(in srgb, var(--ink) 50%, transparent);
+    transform: rotate(-8deg);
+}
+
+.hero-art p {
+    position: absolute;
+    right: 24px;
+    bottom: 10px;
+    color: color-mix(in srgb, var(--azure) 70%, var(--ink));
+    font-size: 0.78rem;
+    text-align: right;
+}
+
+.shop-layout {
+    display: grid;
+    width: min(90%, 1360px);
+    grid-template-columns: minmax(0, 1fr) 330px;
+    align-items: start;
+    gap: 34px;
+    margin: 0 auto;
+    padding: 62px 0 90px;
+}
+
+.section-heading,
+.cart-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.section-heading h2,
+.cart-heading h2 {
+    margin: 0;
+    color: var(--azure);
+    font-size: clamp(1.45rem, 2.4vw, 2rem);
+    letter-spacing: -0.04em;
+}
+
+.search-control {
+    display: flex;
+    width: min(280px, 100%);
+    align-items: center;
+    gap: 8px;
+    padding: 0 12px;
+    border: 1px solid color-mix(in srgb, var(--azure) 24%, transparent);
+    border-radius: 10px;
+    color: var(--azure);
+}
+
+.search-control input {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--azure);
+    font-size: 0.82rem;
+}
+
+.search-control input::placeholder {
+    color: color-mix(in srgb, var(--azure) 56%, var(--ink));
+}
+
+.category-list {
+    display: flex;
+    gap: 8px;
+    margin: 24px 0 20px;
+    overflow-x: auto;
+    padding: 2px 2px 8px;
+}
+
+.category-button {
+    flex: 0 0 auto;
+    padding: 8px 13px;
+    border: 1px solid color-mix(in srgb, var(--azure) 24%, transparent);
+    border-radius: 999px;
+    background: transparent;
+    color: color-mix(in srgb, var(--azure) 72%, var(--ink));
+    cursor: pointer;
+    font-size: 0.78rem;
+}
+
+.category-button:hover,
+.category-button.active {
+    border-color: var(--vermilion);
+    background: color-mix(in srgb, var(--vermilion) 12%, transparent);
+    color: var(--vermilion);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.product-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--azure) 18%, transparent);
+    border-radius: 16px;
+    background: color-mix(in srgb, var(--ink) 92%, var(--azure));
+    transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--azure) 48%, transparent);
+}
+
+.product-art {
+    display: grid;
+    min-height: 150px;
+    place-items: center;
+    background:
+        radial-gradient(ellipse at 50% 85%, color-mix(in srgb, var(--azure) 20%, transparent), transparent 62%),
+        color-mix(in srgb, var(--ink) 84%, var(--azure));
+    font-size: 3.5rem;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-category {
+    margin: 0 0 5px;
+    color: var(--vermilion);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.product-info h3 {
+    margin: 0;
+    color: var(--azure);
+    font-size: 1rem;
+}
+
+.product-description {
+    min-height: 38px;
+    margin: 6px 0 14px;
+    color: color-mix(in srgb, var(--azure) 62%, var(--ink));
+    font-size: 0.76rem;
+}
+
+.product-buy-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.product-price {
+    color: var(--azure);
+    font-size: 0.92rem;
+    font-weight: 800;
+}
+
+.add-to-cart,
+.checkout-button {
+    border: 1px solid var(--vermilion);
+    border-radius: 9px;
+    background: var(--vermilion);
+    color: var(--ink);
+    cursor: pointer;
+    font-weight: 800;
+    transition: transform 160ms ease, background 160ms ease;
+}
+
+.add-to-cart {
+    padding: 8px 10px;
+    font-size: 0.72rem;
+}
+
+.add-to-cart:hover,
+.checkout-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    background: color-mix(in srgb, var(--vermilion) 82%, var(--ink));
+}
+
+.empty-message {
+    padding: 26px 0;
+    color: color-mix(in srgb, var(--azure) 70%, var(--ink));
+}
+
+.cart-panel {
+    position: sticky;
+    top: 100px;
+    padding: 20px;
+    border: 1px solid color-mix(in srgb, var(--azure) 24%, transparent);
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--ink) 91%, var(--azure));
+}
+
+.cart-heading {
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid color-mix(in srgb, var(--azure) 18%, transparent);
+}
+
+.cart-heading .eyebrow {
+    margin-bottom: 5px;
+}
+
+.cart-heading h2 {
+    font-size: 1.35rem;
+}
+
+.cart-empty {
+    margin: 18px 0;
+    color: color-mix(in srgb, var(--azure) 65%, var(--ink));
+    font-size: 0.85rem;
+}
+
+.cart-items {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-item-art {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--azure) 12%, transparent);
+    font-size: 1.4rem;
+}
+
+.cart-item-name {
+    margin: 0;
+    color: var(--azure);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.cart-item-price {
+    color: color-mix(in srgb, var(--azure) 65%, var(--ink));
+    font-size: 0.72rem;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--azure);
+    font-size: 0.78rem;
+}
+
+.quantity-controls button {
+    display: grid;
+    width: 24px;
+    height: 24px;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--azure) 30%, transparent);
+    border-radius: 7px;
+    background: transparent;
+    color: var(--azure);
+    cursor: pointer;
+}
+
+.quantity-controls button:hover {
+    border-color: var(--vermilion);
+    color: var(--vermilion);
+}
+
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid color-mix(in srgb, var(--azure) 18%, transparent);
+    color: color-mix(in srgb, var(--azure) 70%, var(--ink));
+    font-size: 0.86rem;
+}
+
+.cart-summary strong {
+    color: var(--azure);
+}
+
+.checkout-button {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 16px;
+    padding: 12px 14px;
+    font-size: 0.82rem;
+}
+
+.checkout-button:disabled {
+    border-color: color-mix(in srgb, var(--azure) 18%, transparent);
+    background: color-mix(in srgb, var(--azure) 10%, transparent);
+    color: color-mix(in srgb, var(--azure) 38%, transparent);
+    cursor: not-allowed;
+}
+
+.demo-note {
+    margin: 12px 0 0;
+    color: color-mix(in srgb, var(--azure) 52%, var(--ink));
+    font-size: 0.68rem;
+    line-height: 1.5;
+}
+
+.store-status {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 10;
+    max-width: min(400px, calc(100vw - 40px));
+    margin: 0;
+    padding: 12px 16px;
+    border: 1px solid color-mix(in srgb, var(--azure) 40%, transparent);
+    border-radius: 12px;
+    background: var(--ink);
+    color: var(--azure);
+    box-shadow: 0 12px 30px color-mix(in srgb, var(--ink) 40%, transparent);
+}
+
+.store-status:empty {
+    display: none;
+}
+
+.store-footer {
+    flex-wrap: wrap;
+    border-top: 1px solid color-mix(in srgb, var(--azure) 18%, transparent);
+    border-bottom: 0;
+    color: color-mix(in srgb, var(--azure) 62%, var(--ink));
+    font-size: 0.76rem;
+}
+
+.store-footer p {
+    margin: 0;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+@media (max-width: 1050px) {
+    .shop-layout {
+        grid-template-columns: minmax(0, 1fr) 290px;
+        gap: 22px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .store-header,
+    .store-footer {
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+
+    .store-nav {
+        display: none;
+    }
+
+    .store-hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 54px 0;
+    }
+
+    .hero-art {
+        min-height: 240px;
+    }
+
+    .shop-layout {
+        grid-template-columns: 1fr;
+        padding-top: 44px;
+    }
+
+    .cart-panel {
+        position: static;
+    }
+}
+
+@media (max-width: 520px) {
+    .store-header {
+        min-height: 68px;
+        gap: 8px;
+    }
+
+    .store-brand {
+        font-size: 0.9rem;
+    }
+
+    .cart-shortcut {
+        padding: 7px 10px;
+        font-size: 0.76rem;
+    }
+
+    .store-hero,
+    .shop-layout {
+        width: 90%;
+    }
+
+    .section-heading {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .search-control {
+        width: 100%;
+    }
+
+    .product-grid {
+        gap: 10px;
+    }
+
+    .product-art {
+        min-height: 118px;
+    }
+
+    .product-info {
+        padding: 11px;
+    }
+
+    .product-description {
+        min-height: 56px;
+    }
+
+    .product-buy-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .add-to-cart {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
